@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 // Sample products to add to the cart
 const products = [
-  { id: 1, name: 'Apple', price: 1.5 },
-  { id: 2, name: 'Banana', price: 0.75 },
-  { id: 3, name: 'Orange', price: 1.2 },
+  { id: 1, name: 'game 1', price: 40 },
+  { id: 2, name: 'game 2', price: 75 },
+  { id: 3, name: 'game 3', price: 12 },
 ];
 
 const ShoppingCart = () => {

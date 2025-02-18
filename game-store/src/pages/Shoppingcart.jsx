@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { useParams } from "react-router-dom";
 
-// Sample products to add to the cart
+
+// products
 const products = [
-  { id: 1, name: 'game 1', price: 40 },
-  { id: 2, name: 'game 2', price: 75 },
-  { id: 3, name: 'game 3', price: 12 },
+  { id: 1, name: 'game 1 fantasy' , developer: 'placename', price: 40 },
+  { id: 2, name: 'game 2 open world', developer: 'placename', price: 75 },
+  { id: 3, name: 'game 3 flash rpg', developer: 'placename', price: 12 },
+  { id: 4, name: 'game 4 free to play ', developer: 'placename', price: 0 },
 ];
 
 const ShoppingCart = () => {
@@ -32,11 +35,11 @@ const ShoppingCart = () => {
 
       {/* List of Products */}
       <div>
-        <h2>Products</h2>
+        <h2>Products on sale!</h2>
         <ul>
           {products.map(product => (
             <li key={product.id}>
-              <span>{product.name} - ${product.price}</span>
+              <span>{product.name} by {product.developer}- ${product.price}</span>
               <button onClick={() => addItemToCart(product)}>Add to Cart</button>
             </li>
           ))}
@@ -65,5 +68,7 @@ const ShoppingCart = () => {
 };
 
 export default ShoppingCart;
+
+
 
 

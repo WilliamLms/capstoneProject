@@ -29,7 +29,7 @@ function Register() {
 
       if (response.ok) {
         setSuccessMessage('Registration successful! Redirecting to login...');
-        setTimeout(() => navigate('/login'), 2000); // Redirect to login after 2 seconds
+        setTimeout(() => navigate('/login'), 2000); // Redirect to login 
       } else {
         const data = await response.json();
         setError(data.message || 'Registration failed. Try again.');

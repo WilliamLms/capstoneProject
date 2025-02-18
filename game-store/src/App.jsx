@@ -3,9 +3,9 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Homepage from "./pages/Homepage";
 import Shoppingcart from "./pages/Shoppingcart";
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Header from './Links/Header.jsx';
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Header from "./Links/Header.jsx";
 
 function App() {
   return (

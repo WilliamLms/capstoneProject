@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 
 
 // products
@@ -31,6 +31,7 @@ const ShoppingCart = () => {
   const calculateTotal = () => {
     return cart.reduce((total, item) => total + item.price, 0).toFixed(2);
   };
+   const navigate = useNavigate();
 
   // checkout items in the cart
  // const successful = () => {
@@ -38,8 +39,8 @@ const ShoppingCart = () => {
   //};
 
   const Checkout = (productId) => {
-    setCart((prevCart) => prevCart.filter(item => item.id !== productId));
-    alert("GG! Your purchase was Successful, thank you for shopping at Game View! :)")
+    setCart((prevCart) => prevCart.filter((item) => item.id !== productId), navigate('/Checkout'));
+    //alert("GG! Your purchase was Successful, thank you for shopping at Game View! :) Your order number is: 8675309")
   };
   
 

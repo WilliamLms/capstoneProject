@@ -10,6 +10,7 @@ const gamesData = [
     genre: "Adventure",
     description: "An open-world adventure game by Nintendo.",
     image: "https://via.placeholder.com/150",
+    price: 40,
   },
   {
     id: 2,
@@ -17,6 +18,7 @@ const gamesData = [
     genre: "RPG",
     description: "A fantasy action RPG developed by FromSoftware.",
     image: "https://via.placeholder.com/150",
+    price: 60,
   },
   {
     id: 3,
@@ -24,6 +26,7 @@ const gamesData = [
     genre: "Platformer",
     description: "A 3D platformer featuring Mario's adventures.",
     image: "https://via.placeholder.com/150",
+    price: 30,
   },
 ];
 

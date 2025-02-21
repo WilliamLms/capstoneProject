@@ -46,7 +46,7 @@ const ShoppingCart = () => {
           {gamesData.map((product) => (
             <li key={product.id}>
               <span>
-                {product.title} by {product.developer}- ${product.price} info: {product.description}
+                {product.title}, {product.image} , {product.genre}- ${product.price} info: {product.description}
               </span>
               <button onClick={() => addItemToCart(product)}>
                 Add to Cart

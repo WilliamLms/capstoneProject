@@ -70,7 +70,7 @@ const ShoppingCart = () => {
               </li>
             ))
           ) : (
-            <p>Your cart is empty</p>
+            <p>Your cart is empty :'(</p>
           )}
         </ul>
       </div>

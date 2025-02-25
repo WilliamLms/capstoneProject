@@ -16,7 +16,7 @@ const ShoppingCart = () => {
   // Remove item from the cart by its id
   const removeItemFromCart = (productId) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
-    alert("Item removed!")
+    //alert("Item removed!")
   };
 
   // Calculate the total price of items in the cart

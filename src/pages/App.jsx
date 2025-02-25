@@ -1,5 +1,4 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom"; // No need to import React
 import "./App.css";
 import Homepage from "./pages/Homepage";
 import Shoppingcart from "./pages/Shoppingcart";

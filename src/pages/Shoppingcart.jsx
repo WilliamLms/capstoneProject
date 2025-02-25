@@ -1,11 +1,6 @@
-import React, { useState } from "react";
-
-// Sample products to add to the cart
-const products = [
-  { id: 1, name: "game 1", price: 40 },
-  { id: 2, name: "game 2", price: 75 },
-  { id: 3, name: "game 3", price: 12 },
-];
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { gamesData } from "./Gamecatalog.jsx";
 
 const ShoppingCart = () => {
   // State to manage the cart items
@@ -19,11 +14,20 @@ const ShoppingCart = () => {
   // Remove item from the cart by its id
   const removeItemFromCart = (productId) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
+    alert("Item removed!");
   };
 
   // Calculate the total price of items in the cart
   const calculateTotal = () => {
     return cart.reduce((total, item) => total + item.price, 0).toFixed(2);
+  };
+
+  const navigate = useNavigate();
+
+  // Checkout items in the cart
+  const Checkout = (productId) => {
+    setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
+    navigate("/Checkout"); // Navigate after setting the cart state
   };
 
   return (
@@ -32,12 +36,13 @@ const ShoppingCart = () => {
 
       {/* List of Products */}
       <div>
-        <h2>Products</h2>
+        <h2>Products on sale!</h2>
         <ul>
-          {products.map((product) => (
+          {gamesData.map((product) => (
             <li key={product.id}>
               <span>
-                {product.name} - ${product.price}
+                {product.title}, <img src={product.image} alt={product.title} />
+                , {product.genre} - ${product.price} info: {product.description}
               </span>
               <button onClick={() => addItemToCart(product)}>
                 Add to Cart
@@ -55,21 +60,22 @@ const ShoppingCart = () => {
             cart.map((item, index) => (
               <li key={index}>
                 <span>
-                  {item.name} - ${item.price}
+                  {item.title} - ${item.price}
                 </span>
                 <button onClick={() => removeItemFromCart(item.id)}>
                   Remove
                 </button>
+                <button onClick={() => Checkout(item.id)}>Checkout</button>
               </li>
             ))
           ) : (
             <p>Your cart is empty</p>
           )}
         </ul>
-        <h3>Total: ${calculateTotal()}</h3>
       </div>
+
+      <h3>Total: ${calculateTotal()}</h3>
     </div>
   );
 };
-
 export default ShoppingCart;

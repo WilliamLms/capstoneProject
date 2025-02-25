@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import PropTypes from "prop-types";
+=======
+>>>>>>> 22c2807eac3dd708936b2ddd63a06dafc5e9e738
 import GameCard from "./GameCard";
 
 const GameList = ({ games }) => {
@@ -11,6 +14,7 @@ const GameList = ({ games }) => {
   );
 };
 
+<<<<<<< HEAD
 // Prop validation using PropTypes
 GameList.propTypes = {
   games: PropTypes.arrayOf(
@@ -24,4 +28,6 @@ GameList.propTypes = {
   ).isRequired,
 };
 
+=======
+>>>>>>> 22c2807eac3dd708936b2ddd63a06dafc5e9e738
 export default GameList;

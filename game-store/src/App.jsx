@@ -5,6 +5,7 @@ import Homepage from "./pages/Homepage";
 import Shoppingcart from "./pages/Shoppingcart";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import MyAccount from "./pages/MyAccount";
 import Header from "./Links/Header.jsx";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/cart" element={<Shoppingcart />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/account" element={<MyAccount />} />
       </Routes>
     </>
   );

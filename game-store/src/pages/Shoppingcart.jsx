@@ -11,6 +11,7 @@ const ShoppingCart = () => {
   // Add an item to the cart
   const addItemToCart = (product) => {
     setCart((prevCart) => [...prevCart, product]);
+     alert("ITEM ADDED!")
   };
 
   // Removes the selected item from the cart

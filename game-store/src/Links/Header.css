@@ -18,6 +18,10 @@ image{
   height: auto;
 }
 
+h3{
+  color:hotpink;
+}
+
 p {
   color: red;
 }

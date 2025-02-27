@@ -22,12 +22,24 @@ function Login() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
-
+  
+      const data = await response.json();  // Convert response to JSON
+      console.log("API Response:", data);  // Log the API response
+  
       if (response.ok) {
-        const data = await response.json();
-        const { token } = data;
+        const { token, user } = data;
+  
+        if (!user) {
+          console.error("No user data received from API!");
+          setError("Error retrieving user data.");
+          return;
+        }
+  
         localStorage.setItem("authToken", token);
-        navigate("/");
+        localStorage.setItem("user", JSON.stringify(user));  // Store user data
+        console.log("Stored User:", localStorage.getItem("user"));  // Log stored user
+  
+        navigate("/account", { replace: true });
       } else {
         setError("Invalid email or password.");
       }

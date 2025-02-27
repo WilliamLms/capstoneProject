@@ -1,0 +1,41 @@
+body {
+  background-color: rgb(23, 23, 56);
+}
+
+li {
+  font-size: medium;
+  color: rgb(15, 248, 248);
+  line-height: 1.2;
+}
+
+img{
+  width: 400px;
+  height: auto;
+}
+
+image{
+  width: 400px;
+  height: auto;
+}
+
+p {
+  color: red;
+}
+
+div {
+  text-indent: 50px;
+  font-size: medium;
+  color: lightgray;
+}
+
+button {
+  font-size: medium;
+  color: red;
+}
+
+a{
+  color:green;
+}
+a:hover {
+  color: hotpink;
+}

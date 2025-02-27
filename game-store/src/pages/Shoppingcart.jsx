@@ -8,28 +8,28 @@ const ShoppingCart = () => {
   // State to manage the cart items
   const [cart, setCart] = useState([]);
 
-  // Add item to the cart
+  // Add an item to the cart
   const addItemToCart = (product) => {
     setCart((prevCart) => [...prevCart, product]);
   };
 
-  // Remove item from the cart by its id
+  // Removes the selected item from the cart
   const removeItemFromCart = (productId) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
     //alert("Item removed!")
   };
 
   // Calculate the total price of items in the cart
-  const calculateTotal = () => {
-    return cart.reduce((total, item) => total + item.price, 0).toFixed(2);
-  };
+ // const calculateTotal = () => {
+   // return cart.reduce((total, item) => total + item.price, 0).toFixed(2);
+  //};
   const navigate = useNavigate();
   
   // const successful = () => {
   // alert("Purchase successful")
   //};
   
-  // checkout items in the cart
+  // checkout items in the cart, navigate to checkout page
   const Checkout = (productId) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== productId), navigate('/Checkout'));
     //alert("GG! Your purchase was Successful, thank you for shopping at Game View! :) Your order number is: 8675309")
@@ -39,14 +39,14 @@ const ShoppingCart = () => {
     <div>
       <h1>Shopping Cart</h1>
 
-      {/* List of Products */}
+      {/* List of Games */}
       <div>
         <h2>Products on sale!</h2>
         <ul>
           {gamesData.map((product) => (
             <li key={product.id}>
               <span>
-                {product.title}, {product.image} , {product.genre}- ${product.price} info: {product.description}
+                {product.title}, {product.image} , {product.genre} info: {product.description}
               </span>
               <button onClick={() => addItemToCart(product)}>
                 Add to Cart
@@ -64,7 +64,7 @@ const ShoppingCart = () => {
             cart.map((item, index) => (
               <li key={index}>
                 <span>
-                  {item.title}  - ${item.price}
+                  {item.title}  - 
                 </span>
                 <button onClick={() => removeItemFromCart(item.id)}>Remove</button> <button onClick={() => Checkout(item.id)}>checkout</button>
               </li>
@@ -75,13 +75,10 @@ const ShoppingCart = () => {
         </ul>
       </div>
 
-      <h3>Total: ${calculateTotal()}</h3>
+      
     </div>
     
   );
 };
 
 export default ShoppingCart;
-
-
-

@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import MyAccount from "./pages/MyAccount";
 import Header from "./Links/Header.jsx";
+import Checkout from "../../Checkout.jsx";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/account" element={<MyAccount />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </>
   );

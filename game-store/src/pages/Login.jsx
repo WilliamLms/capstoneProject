@@ -10,38 +10,38 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-  
+
     if (!email || !password) {
       setError("Please enter both Email and Password");
       return;
     }
-  
+
     try {
-      const response = await fetch("http://localhost:3000/api/account/login", {
+      const response = await fetch("http://localhost:5000/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
-  
-      const data = await response.json();  // Convert response to JSON
-      console.log("API Response:", data);  // Log the API response
-  
+
+      const data = await response.json(); // Convert response to JSON
+      console.log("API Response:", data); // Log the API response
+
       if (response.ok) {
         const { token, user } = data;
-  
+
         if (!user) {
           console.error("No user data received from API!");
           setError("Error retrieving user data.");
           return;
         }
-  
+
         localStorage.setItem("authToken", token);
-        localStorage.setItem("user", JSON.stringify(user));  // Store user data
-        console.log("Stored User:", localStorage.getItem("user"));  // Log stored user
-  
+        localStorage.setItem("user", JSON.stringify(user)); // Store user data
+        console.log("Stored User:", localStorage.getItem("user")); // Log stored user
+
         navigate("/account", { replace: true });
       } else {
-        setError("Invalid email or password.");
+        setError(data.message || "Invalid email or password.");
       }
     } catch (error) {
       console.error("Error during login:", error);

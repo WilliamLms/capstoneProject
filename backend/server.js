@@ -3,16 +3,17 @@ const cors = require("cors");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { PrismaClient } = require("@prisma/client");
+require("dotenv").config(); 
 
 const app = express();
 const prisma = new PrismaClient();
-const PORT = 5000;
-const SECRET_KEY = "your_secret_key";
+const PORT = process.env.PORT || 5000; 
+const SECRET_KEY = process.env.JWT_SECRET || "your_secret_key";
 
 app.use(cors());
 app.use(express.json());
 
-
+// REGISTER ROUTE
 app.post("/api/register", async (req, res) => {
   const { firstName, lastName, email, password } = req.body;
 
@@ -31,17 +32,21 @@ app.post("/api/register", async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // Store user in database
-    await prisma.user.create({
+    const newUser = await prisma.user.create({
       data: { firstName, lastName, email, password: hashedPassword },
     });
 
-    res.status(201).json({ message: "User registered successfully!" });
+    // Generate JWT token
+    const token = jwt.sign({ userId: newUser.id, email: newUser.email }, SECRET_KEY, { expiresIn: "1d" });
+
+    res.status(201).json({ message: "User registered successfully!", token });
   } catch (error) {
     console.error("Registration error:", error);
     res.status(500).json({ message: "Server error, please try again later." });
   }
 });
 
+// LOGIN ROUTE
 app.post("/api/login", async (req, res) => {
   const { email, password } = req.body;
 
@@ -52,25 +57,49 @@ app.post("/api/login", async (req, res) => {
   try {
     // Find user in database
     const user = await prisma.user.findUnique({ where: { email } });
-    if (!user) {
-      return res.status(401).json({ message: "Invalid email or password." });
-    }
 
-    // Compare passwords
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
+    if (!user || !(await bcrypt.compare(password, user.password))) {
       return res.status(401).json({ message: "Invalid email or password." });
     }
 
     // Generate JWT token
-    const token = jwt.sign({ userId: user.id, email: user.email }, SECRET_KEY, { expiresIn: "1h" });
+    const token = jwt.sign({ userId: user.id, email: user.email }, SECRET_KEY, { expiresIn: "1d" });
 
-    res.json({ message: "Login successful!", token });
+    res.json({ 
+      message: "Login successful!", 
+      token, 
+      user: { id: user.id, firstName: user.firstName, lastName: user.lastName, email: user.email }
+    });
   } catch (error) {
     console.error("Login error:", error);
     res.status(500).json({ message: "Server error, please try again later." });
   }
 });
 
+// GET USER ACCOUNT ROUTE (For fetching user data after login)
+app.get("/api/account", async (req, res) => {
+  const authHeader = req.headers.authorization;
+  
+  if (!authHeader) {
+    return res.status(401).json({ message: "No token provided." });
+  }
 
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+  const token = authHeader.split(" ")[1];
+
+  try {
+    const decoded = jwt.verify(token, SECRET_KEY);
+
+    // Find user in database
+    const user = await prisma.user.findUnique({ where: { email: decoded.email } });
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found." });
+    }
+
+    res.status(200).json({ id: user.id, firstName: user.firstName, lastName: user.lastName, email: user.email });
+  } catch (error) {
+    res.status(401).json({ message: "Invalid token." });
+  }
+});
+
+app.listen(PORT, () => console.log(`✅ Server running on http://localhost:${PORT}`));

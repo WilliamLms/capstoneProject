@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { gamesData } from "./Gamecatalog";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const ShoppingCart = () => {
@@ -11,7 +11,7 @@ const ShoppingCart = () => {
   // Add an item to the cart
   const addItemToCart = (product) => {
     setCart((prevCart) => [...prevCart, product]);
-     alert("ITEM ADDED!")
+    alert("ITEM ADDED!")
   };
 
   // Removes the selected item from the cart
@@ -20,10 +20,10 @@ const ShoppingCart = () => {
    // alert("Item removed!")
   };
 
-  // Calculate the total price of items in the cart
- // const calculateTotal = () => {
-   // return cart.reduce((total, item) => total + item.price, 0).toFixed(2);
-  //};
+   //Calculate the total price of items in the cart
+ const calculateTotal = () => {
+    return cart.reduce((total, item) => total + item.price, 0).toFixed(2);
+  };
   const navigate = useNavigate();
   
   // const successful = () => {
@@ -47,7 +47,7 @@ const ShoppingCart = () => {
           {gamesData.map((product) => (
             <li key={product.id}>
               <span>
-                {product.title}, {product.image} , {product.genre} info: {product.description}
+                {product.image} , {product.title}, {product.genre}, ${product.price} info: {product.description}
               </span>
               <button onClick={() => addItemToCart(product)}>
                 Add to Cart
@@ -74,6 +74,7 @@ const ShoppingCart = () => {
             <p>Your cart is empty :'(</p>
           )}
         </ul>
+        <h3>Total: ${calculateTotal()}</h3>
       </div>
 
       

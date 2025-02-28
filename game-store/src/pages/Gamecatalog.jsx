@@ -10,6 +10,7 @@ export const gamesData = [
       genre: "Adventure",
       description: "An open-world adventure game by Nintendo.",
       image: <img src ="https://upload.wikimedia.org/wikipedia/en/c/c6/The_Legend_of_Zelda_Breath_of_the_Wild.jpg"></img>,
+      price: 60
     },
     {
       id: 2,
@@ -17,6 +18,7 @@ export const gamesData = [
       genre: "RPG",
       description: "A fantasy action RPG developed by FromSoftware.",
       image: <img src ="https://upload.wikimedia.org/wikipedia/en/b/b9/Elden_Ring_Box_art.jpg"></img>,
+      price: 30
     },
     {
       id: 3,
@@ -24,6 +26,7 @@ export const gamesData = [
       genre: "Platformer",
       description: "A 3D platformer featuring Mario's adventures.",
       image: <img src ="https://m.media-amazon.com/images/I/91SF0Tzmv4L.jpg"></img>,
+      price: 30
     },
     {
       id: 4,
@@ -31,6 +34,7 @@ export const gamesData = [
       genre: "Action",
       description: "Kratos and his son Atreus journey through Norse mythology.",
       image: <img src ="https://m.media-amazon.com/images/M/MV5BNjJiNTFhY2QtNzZkYi00MDNiLWEzNGEtNWE1NzBkOWIxNmY5XkEyXkFqcGc@._V1_.jpg"></img>,
+      price: 40
     },
     {
       id: 5,
@@ -38,6 +42,7 @@ export const gamesData = [
       genre: "Action-Adventure",
       description: "An open-world Western epic by Rockstar Games.",
       image: <img src ="https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg"></img>,
+      price: 60
     },
     {
       id: 6,
@@ -46,6 +51,7 @@ export const gamesData = [
       description:
         "A fantasy RPG where Geralt of Rivia hunts monsters and navigates politics.",
       image: <img src ="https://upload.wikimedia.org/wikipedia/en/0/0c/Witcher_3_cover_art.jpg"></img>,
+      price: 60
     },
     {
       id: 7,
@@ -53,6 +59,7 @@ export const gamesData = [
       genre: "RPG",
       description: "A futuristic open-world RPG by CD Projekt Red.",
       image: <img src ="https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg"></img>,
+      price: 60
     },
     {
       id: 8,
@@ -60,6 +67,7 @@ export const gamesData = [
       genre: "Metroidvania",
       description: "A beautifully crafted 2D action-platformer with deep lore.",
       image: <img src ="https://upload.wikimedia.org/wikipedia/en/0/04/Hollow_Knight_first_cover_art.webp"></img>,
+      price: 60
     },
     {
       id: 9,
@@ -67,6 +75,7 @@ export const gamesData = [
       genre: "Action RPG",
       description: "A challenging action RPG set in a dark fantasy world.",
       image: <img src ="https://upload.wikimedia.org/wikipedia/en/b/bb/Dark_souls_3_cover_art.jpg"></img>,
+      price: 60
     },
     {
       id: 10,
@@ -74,6 +83,7 @@ export const gamesData = [
       genre: "Action RPG",
       description: "A gothic horror action RPG developed by FromSoftware.",
       image: <img src ="https://upload.wikimedia.org/wikipedia/en/6/68/Bloodborne_Cover_Wallpaper.jpg"></img>,
+      price: 20
     },
     {
       id: 11,
@@ -82,6 +92,7 @@ export const gamesData = [
       description:
         "A turn-based RPG featuring high school life and dungeon crawling.",
       image: <img src = "https://upload.wikimedia.org/wikipedia/en/b/b0/Persona_5_cover_art.jpg"></img>,
+      price: 60
     },
     {
       id: 12,
@@ -89,6 +100,7 @@ export const gamesData = [
       genre: "Action",
       description: "A ninja action game focused on precise swordplay.",
       image: <img src = "https://upload.wikimedia.org/wikipedia/en/thumb/6/6e/Sekiro_art.jpg/220px-Sekiro_art.jpg"></img>,
+      price: 60
     },
     {
       id: 13,
@@ -96,6 +108,7 @@ export const gamesData = [
       genre: "Sandbox",
       description: "A blocky, creative survival game.",
       image: <img src = "https://upload.wikimedia.org/wikipedia/en/thumb/b/b6/Minecraft_2024_cover_art.png/220px-Minecraft_2024_cover_art.png"></img>,
+      price: 60
     },
     {
       id: 14,
@@ -103,6 +116,7 @@ export const gamesData = [
       genre: "Simulation",
       description: "A farming and life simulation game with RPG elements.",
       image: <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHWjybGuWhdyJqjmtziGvtHvCnQf23yY0R6g&s"></img>,
+      price: 60
     },
     {
       id: 15,
@@ -110,6 +124,7 @@ export const gamesData = [
       genre: "Roguelike",
       description: "An action-packed dungeon crawler set in Greek mythology.",
       image: <img src = "https://upload.wikimedia.org/wikipedia/en/c/cc/Hades_cover_art.jpg"></img>,
+      price: 60
     },
     {
       id: 16,
@@ -117,6 +132,7 @@ export const gamesData = [
       genre: "Survival Horror",
       description: "A modernized remake of the classic horror action game.",
       image: <img src = "https://upload.wikimedia.org/wikipedia/en/d/df/Resident_Evil_4_remake_cover_art.jpg"></img>,
+      price: 40
     },
     {
       id: 17,
@@ -124,6 +140,7 @@ export const gamesData = [
       genre: "FPS",
       description: "A fast-paced first-person shooter with brutal combat.",
       image: <img src = "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/782330/capsule_616x353.jpg?t=1702308063"></img>,
+      price: 60
     },
     {
       id: 18,
@@ -132,6 +149,7 @@ export const gamesData = [
       description:
         "A narrative-driven survival game set in a post-apocalyptic world.",
       image: <img src ="https://upload.wikimedia.org/wikipedia/en/4/4f/TLOU_P2_Box_Art_2.png"></img>,
+      price: 60
     },
     {
       id: 19,
@@ -139,6 +157,7 @@ export const gamesData = [
       genre: "JRPG",
       description: "A reimagining of the classic RPG with action combat.",
       image: <img src = "https://upload.wikimedia.org/wikipedia/en/c/ce/FFVIIRemake.png"></img>,
+      price: 60
     },
     {
       id: 20,
@@ -146,6 +165,7 @@ export const gamesData = [
       genre: "Metroidvania",
       description: "A thrilling 2D platformer starring Samus Aran.",
       image: <img src ="https://upload.wikimedia.org/wikipedia/en/thumb/f/f7/Metroid_Dread_Banner.png/220px-Metroid_Dread_Banner.png"></img>,
+      price: 40
     },
     {
       id: 21,
@@ -153,6 +173,7 @@ export const gamesData = [
       genre: "FPS",
       description: "The latest entry in the legendary Halo series.",
       image: <img src = "https://upload.wikimedia.org/wikipedia/en/1/14/Halo_Infinite.png"></img>,
+      price: 30
     },
     {
       id: 22,
@@ -161,6 +182,7 @@ export const gamesData = [
       description:
         "A game where you hunt massive creatures in a living ecosystem.",
       image: <img src ="https://upload.wikimedia.org/wikipedia/en/thumb/1/1b/Monster_Hunter_World_cover_art.jpg/220px-Monster_Hunter_World_cover_art.jpg"></img>,
+      price: 60
     },
     {
       id: 23,
@@ -168,6 +190,7 @@ export const gamesData = [
       genre: "Action-Adventure",
       description: "A samurai open-world game set in feudal Japan.",
       image: <img src ="https://upload.wikimedia.org/wikipedia/en/b/b6/Ghost_of_Tsushima.jpg"></img>,
+      price: 40
     },
 ];
 

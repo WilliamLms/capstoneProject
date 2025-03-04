@@ -11,9 +11,9 @@ const PORT = process.env.PORT || 5000;
 const SECRET_KEY = process.env.JWT_SECRET || "your_secret_key";
 
 app.use(cors({
-  origin: ["http://localhost:5174", "https://your-netlify-site.netlify.app"],
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  credentials: true, 
+  origin: ["http://localhost:5173", "https://gameviewwebsite.netlify.app"], 
+  methods: ["GET", "POST", "PUT", "DELETE"], 
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
 app.use(express.json());
 

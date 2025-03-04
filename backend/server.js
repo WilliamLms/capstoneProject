@@ -10,7 +10,10 @@ const prisma = new PrismaClient();
 const PORT = process.env.PORT || 5000; 
 const SECRET_KEY = process.env.JWT_SECRET || "your_secret_key";
 
-app.use(cors());
+aapp.use(cors({
+  origin: ["http://localhost:5173", "https://capstoneproject-l7xd.onrender.com"], 
+  credentials: true,
+}));
 app.use(express.json());
 
 // REGISTER ROUTE

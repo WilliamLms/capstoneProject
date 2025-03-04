@@ -10,10 +10,23 @@ const prisma = new PrismaClient();
 const PORT = process.env.PORT || 5000; 
 const SECRET_KEY = process.env.JWT_SECRET || "your_secret_key";
 
+const allowedOrigins = [
+  "http://localhost:5173", 
+  "https://gameviewwebsite.netlify.app", 
+  "https://main--gameviewwebsite.netlify.app"
+];
+
 app.use(cors({
-  origin: ["http://localhost:5173", "https://gameviewwebsite.netlify.app"], 
-  methods: ["GET", "POST", "PUT", "DELETE"], 
-  allowedHeaders: ["Content-Type", "Authorization"]
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true, 
 }));
 app.use(express.json());
 
